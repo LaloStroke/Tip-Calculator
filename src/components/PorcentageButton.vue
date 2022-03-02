@@ -6,7 +6,7 @@ export default {
   name: "PorcentageButton",
   props: {
     value: {
-      type: Number,
+      type: Number || String,
       required: true,
     },
   },
