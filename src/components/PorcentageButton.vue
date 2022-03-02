@@ -1,13 +1,17 @@
 <template>
-  <button>{{ value }}%</button>
+  <button @click="handleClick">{{ value }}%</button>
 </template>
 <script>
 export default {
   name: "PorcentageButton",
   props: {
     value: {
-      type: Number || String,
       required: true,
+    },
+  },
+  methods: {
+    handleClick() {
+      this.$emit("clicked", this.value);
     },
   },
 };
