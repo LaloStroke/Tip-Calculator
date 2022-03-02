@@ -1,7 +1,7 @@
 <template>
   <div>
     <label v-if="label" :for="label">{{ label }}</label>
-    <input :name="label" :placeholder="placeHolder" type="number" />
+    <input @input="handleChange" :placeholder="placeHolder" type="number" />
   </div>
 </template>
 <script>
@@ -15,6 +15,11 @@ export default {
     label: {
       type: String,
       required: false,
+    },
+  },
+  methods: {
+    handleChange(event) {
+      this.$emit("changed", event.target.value);
     },
   },
 };

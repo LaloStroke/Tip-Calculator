@@ -5,24 +5,39 @@
         <p>Tip Amount</p>
         <small>/ person</small>
       </div>
-      <p>$4.27</p>
+      <p>$ {{ tip }}</p>
     </div>
     <div>
       <div>
         <p>Total</p>
         <small>/ person</small>
       </div>
-      <p>$32.79</p>
+      <p>${{ total }}</p>
     </div>
     <PorcentageButton :value="'Reset'" />
   </div>
 </template>
 <script>
 import PorcentageButton from "./PorcentageButton.vue";
+import globalState from "../Store/Store";
 
 export default {
   name: "TotalTip",
   components: { PorcentageButton },
+  // data() {
+  //   return {
+  //     tip: globalState.tipAmount,
+  //     total: globalState.totalAmount,
+  //   };
+  // },
+  computed: {
+    tip() {
+      return globalState.tipAmount;
+    },
+    total() {
+      return globalState.totalAmount;
+    },
+  },
 };
 </script>
 <style></style>
